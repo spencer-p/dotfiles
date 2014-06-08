@@ -12,7 +12,7 @@ xrdb -merge ~/.Xresources #xresources for pointer and urxvt colors and stuff
 xsetroot -cursor_name left_ptr & #not stupid cursor
 xset +fp /usr/share/fonts/local #fix font finding or something
 xset fp rehash
-$HOME/.bin/naturalscrolling #uses xset to invert scrolling OSX style
+naturalscrolling #uses xset to invert scrolling OSX style
 dropboxd & #dropbox duh
 customunclutter & #hide mouse when not in use, this is an alias in my bashrc
 exec bspwm 2> ~/.bspwm.log
