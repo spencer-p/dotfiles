@@ -1,0 +1,16 @@
+#!/bin/bash
+
+trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
+
+PANELDIR=$HOME/.config/panel
+DATA=$PANELDIR/data.txt
+
+if [ -e $DATA ]; then
+    rm $DATA
+fi
+mkfifo $DATA
+
+bspc control --subscribe > $DATA &
+conky -c $PANELDIR/panelconky > $DATA &
+
+cat $DATA | $PANELDIR/panel_parse | bar

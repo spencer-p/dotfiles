@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd $HOME/docs/desmume
+
+desmume --disable-limiter "Pokemon White.nds"

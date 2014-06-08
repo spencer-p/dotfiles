@@ -1,0 +1,10 @@
+#!/bin/bash
+
+soundperc=`getvol|grep --only-matching -e [0-9]*`
+
+if [ $soundperc == "0" ]
+then
+    exit
+fi
+
+beep -f $(((16*soundperc)+100)) -l 10

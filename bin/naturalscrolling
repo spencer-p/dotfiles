@@ -1,0 +1,3 @@
+#!/bin/bash
+
+xinput -set-button-map "Logitech Unifying Device. Wireless PID:1017" 1 2 3 5 4 7 6
