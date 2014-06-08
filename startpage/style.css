@@ -6,7 +6,7 @@ a {
     text-decoration: none;
     color: inherit;
     transition-property:font-size;
-    transition-duration: 0.3s;
+    transition-duration: 0.15s;
 }
 a:hover {
     font-size: 36px;
