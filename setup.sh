@@ -13,3 +13,4 @@ ln vim/colors/* $HOME/.vim/colors
 ln vim/ftplugin/* $HOME/.vim/ftplugin
 ln vim/plugin/* $HOME/.vim/plugin
 ln xinitrc $HOME/.xinitrc
+ln tmux.conf $HOME/.tmux.conf

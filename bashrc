@@ -8,6 +8,7 @@ alias keybindcfg='vim ~/.config/sxhkd/sxhkdrc'
 #alias pacman='pacmatic'
 alias bc='bc -q'
 alias js='js17'
+alias pls='sudo $(history -p !!)'
 PATH=$HOME/.config/bin:$PATH
 PROMPT_COMMAND=setprompt
 export EDITOR="vim"
