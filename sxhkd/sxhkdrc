@@ -97,8 +97,8 @@ super + d
 super + c
     google-chrome-stable
 
-alt + l
-    sleep 0.5 && xset dpms force off    
+#alt + l
+#    sleep 0.5 && xset dpms force off    
 #lock
 
 super + shift + s
