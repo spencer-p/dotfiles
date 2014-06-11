@@ -1,6 +1,6 @@
 #aliases yay
 
-alias ls='ls --color=auto'
+alias ls='ls --color=auto --group-directories-first -X'
 alias grep='grep --colour=auto'
 alias sudo='sudo '
 alias bspcfg='vim ~/.config/bspwm/bspwmrc'
