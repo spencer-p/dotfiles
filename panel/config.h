@@ -1,29 +1,20 @@
-//'r' is default for everything (no background, whiteish fg)
-//1 means true, 0 means false for things that aren't chars
+//This config file used to be interesting.
+//Now just simply add the formatting string
+//for each type of workspace
 
 //currently selected
-#define ACTIVE_FG '7'
-#define ACTIVE_BG 'r'
-
-//show overline/underline for active?
-#define ACTIVE_OVERLINE 1
-#define ACTIVE_OVERLINE_COLOR '6'
+#define ACTIVE "%{F#ffdde3ff B- U#ff6185b6 +o}"
 
 //urgent or something idk
-#define URGENT_FG 'r'
-#define URGENT_BG 'r'
 //overline for urgent?
 //if you set a background probably
-#define URGENT_OVERLINE 1
-#define URGENT_OVERLINE_COLOR '4'
+#define URGENT "%{F- B- U#ff616ab7 +o}"
 
 //has windows
-#define OCCUPIED_FG 'r'
-#define OCCUPIED_BG 'r'
+#define OCCUPIED "%{F- B- -o}"
 
 //show if no winows?
 #define SHOW_EMPTY 1
 
 //empty workspace color (if showing)
-#define EMPTY_FG '8'
-#define EMPTY_BG 'r'
+#define EMPTY "%{F#ff434343 B- -o}"

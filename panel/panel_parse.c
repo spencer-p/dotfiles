@@ -5,18 +5,19 @@
 #include <string.h>
 #include "config.h"
 
-#define SPACESLEN 128
-#define STATUSLEN 256
+#define SPACESLEN 256
+#define STATUSLEN 512
 
-char spaces[128];
-char status[256];
+char spaces[SPACESLEN];
+char status[STATUSLEN];
 
 int write(char *str, int *i, const char *format, ...) {
     int index = *i;
     int num = 0;
     for (int r = 0; format[r] != '\0'; r++) {
         if (format[r] == '%') {
-            num += (format[++r] != '%') ? 1 : 0;
+            r++;
+            num += (format[r] == 'c' || format[r] == 's') ? 1 : 0;
         }
     }
     va_list args;
@@ -24,11 +25,22 @@ int write(char *str, int *i, const char *format, ...) {
         va_start(args, num);
     }
     for (int r = 0; format[r] != '\0'; r++) {
+        char *insert; //no definitions inside switches is dumb
         switch (format[r]) {
             case '%':
                 if (format[++r] != '%') {
                     //NOTE ^^^ THE ++R
-                    str[index++] = (char) va_arg(args, int);
+                    switch(format[r]) {
+                        case 'c':
+                            str[index++] = (char) va_arg(args, int);
+                            break;
+                        case 's':
+                            insert = (char*) va_arg(args, char*);
+                            for (int i = 0; insert[i] != '\0'; i++) {
+                                str[index++] = insert[i];
+                            }
+                            break;
+                    }
                 }
                 break;
             default:
@@ -72,18 +84,14 @@ int main(int argc, char *argv[]) {
                         case 'O':
                         case 'F':
                         case 'U':
-                            //"\f%c", ACTIVE_FG
-                            if (ACTIVE_OVERLINE) {
-                                write(spaces, &i, "\\u%c", ACTIVE_OVERLINE_COLOR);
-                            }
-                            write(spaces, &i, "\\f%c\\b%c ", ACTIVE_FG, ACTIVE_BG);
+                            write(spaces, &i, "%s ", ACTIVE);
                             while ((c=getchar()) != ':') {
                                 write(spaces, &i, "%c", c);
                             }
-                            write(spaces, &i, " \\ur");
+                            write(spaces, &i, " ");
                             break;
                         case 'o':
-                            write(spaces, &i, "\\f%c\\b%c ", OCCUPIED_FG, OCCUPIED_BG);
+                            write(spaces, &i, "%s ", OCCUPIED);
                             while ((c=getchar()) != ':') {
                                 write(spaces, &i, "%c", c);
                             }
@@ -91,7 +99,7 @@ int main(int argc, char *argv[]) {
                             break;
                         case 'f':
                             if (SHOW_EMPTY) {
-                                write(spaces, &i, "\\f%c\\b%c ", EMPTY_FG, EMPTY_BG);
+                                write(spaces, &i, "%s ", EMPTY);
                                 while ((c=getchar()) != ':') {
                                     write(spaces, &i, "%c", c);
                                 }
@@ -99,14 +107,11 @@ int main(int argc, char *argv[]) {
                             }
                             break;
                         case 'u':
-                            if (URGENT_OVERLINE) {
-                                write(spaces, &i, "\\u%c", URGENT_OVERLINE_COLOR);
-                            }
-                            write(spaces, &i, "\\f%c\\b%c ", URGENT_FG, URGENT_BG);
+                            write(spaces, &i, "%s ", URGENT);
                             while ((c=getchar()) != ':') {
                                 write(spaces, &i, "%c", c);
                             }
-                            write(spaces, &i, " \\ur");
+                            write(spaces, &i, " ");
                             break;
                     }
                 } while (c != '\n' && i < SPACESLEN-1);
@@ -115,7 +120,7 @@ int main(int argc, char *argv[]) {
                 break;
             }
         }
-        printf("\\l%s%s\n", spaces, status);
+        printf("%%{l}%s%s\n", spaces, status);
         //just for a slight delay
         system("");
         fflush(stdout);

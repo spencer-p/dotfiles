@@ -3,7 +3,13 @@
 trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 
 PANELDIR=$HOME/.config/panel
-DATA=$PANELDIR/data.txt
+DATA=$PANELDIR/paneldata.txt
+
+DIMENSIONS="x22"
+FONT="-*-terminus-medium-r-normal-*-16-*-*-*-c-*-*-1"
+UNDERLINE="2"
+BG="#ff272727"
+FG="#ffc5c8c6"
 
 if [ -e $DATA ]; then
     rm $DATA
@@ -13,4 +19,4 @@ mkfifo $DATA
 bspc control --subscribe > $DATA &
 conky -c $PANELDIR/panelconky > $DATA &
 
-cat $DATA | $PANELDIR/panel_parse | bar
+cat $DATA | $PANELDIR/panel_parse | bar -b -g $DIMENSIONS -f $FONT -u $UNDERLINE -B $BG -F $FG

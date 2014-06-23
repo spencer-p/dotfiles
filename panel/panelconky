@@ -32,17 +32,29 @@ override_utf8_locale no
 # number of cpu samples to average
 # set to 1 to disable averaging
 cpu_avg_samples 2
-
-
 # Stuff after 'TEXT' will be formatted on screen
-TEXT
-S:\r\
-#\frUptime: \f1${uptime} 
-\frRAM: \f3${memperc}% \
-\frCPU1: \f5${cpu cpu1}% \frCPU2: \f5${cpu cpu2}% \
-\fr/: \f4${fs_used_perc /}% \fr/home: \f4${fs_used_perc /home}% \
-${if_up wlan0}\frIP: \f2${addr wlan0} \frWeather: \f6${execi 300 weather 95070} \
-${else}\f6OFFLINE ${endif}\
-\frVolume: \f9${exec getvol} \
+
+# COLORS
+#   COLOR0 #1b1b1b
+#   COLOR8 #434343
+#   COLOR1 #7d699b
+#   COLOR9 #9d87b9
+#   COLOR2 #61859b
+#   COLOR3 #7d859b
+#   COLOR4 #616ab7
+#   COLOR5 #7c69b7
+#   COLOR6 #6185b6
+#   COLOR7 #dde3ff
+
 #Down: ${downspeed wlan0} Up: ${upspeed wlan0}" , "color":"\#87ff00" },
-\fr${time %A, %B %d %I:%M} 
+#%{F-}Uptime: %{F${COLOR1}}${uptime} 
+
+TEXT
+S:%{r}\
+%{F-}CPU1: %{F\#ff7c69b7}${cpu cpu1}%% %{F-}CPU2: %{F\#ff7c69b7}${cpu cpu2}%% \
+%{F-}RAM: %{F\#ff7d859b}${memperc}%% \
+%{F-}/: %{F\#ff616ab7}${fs_used_perc /}%% %{F-}/home: %{F\#ff616ab7}${fs_used_perc /home}%% \
+${if_up wlan0}%{F-}IP: %{F\#ff61859b}${addr wlan0} %{F-}Weather: %{F\#ff6185b6}${execi 300 weather 95070} \
+${else}%{F\#ff6185b6}OFFLINE ${endif}\
+%{F-}Volume: %{F\#ff9d87b9}${exec getvol}% \
+%{F-}${time %A, %B %d %I:%M} 
