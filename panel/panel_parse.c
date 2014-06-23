@@ -86,32 +86,32 @@ int main(int argc, char *argv[]) {
                         case 'U':
                             write(spaces, &i, "%s ", ACTIVE);
                             while ((c=getchar()) != ':') {
-                                write(spaces, &i, "%c", c);
+                                spaces[i++] = c;
                             }
-                            write(spaces, &i, " ");
+                            spaces[i++] = ' ';
                             break;
                         case 'o':
                             write(spaces, &i, "%s ", OCCUPIED);
                             while ((c=getchar()) != ':') {
-                                write(spaces, &i, "%c", c);
+                                spaces[i++] = c;
                             }
-                            write(spaces, &i, " ");
+                            spaces[i++] = ' ';
                             break;
                         case 'f':
                             if (SHOW_EMPTY) {
                                 write(spaces, &i, "%s ", EMPTY);
                                 while ((c=getchar()) != ':') {
-                                    write(spaces, &i, "%c", c);
+                                    spaces[i++] = c;
                                 }
-                                write(spaces, &i, " ");
+                                spaces[i++] = ' ';
                             }
                             break;
                         case 'u':
                             write(spaces, &i, "%s ", URGENT);
                             while ((c=getchar()) != ':') {
-                                write(spaces, &i, "%c", c);
+                                spaces[i++] = c;
                             }
-                            write(spaces, &i, " ");
+                            spaces[i++] = ' ';
                             break;
                     }
                 } while (c != '\n' && i < SPACESLEN-1);
