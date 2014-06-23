@@ -25,7 +25,6 @@ int write(char *str, int *i, const char *format, ...) {
         va_start(args, num);
     }
     for (int r = 0; format[r] != '\0'; r++) {
-        char *insert; //no definitions inside switches is dumb
         switch (format[r]) {
             case '%':
                 if (format[++r] != '%') {
@@ -34,6 +33,7 @@ int write(char *str, int *i, const char *format, ...) {
                         case 'c':
                             str[index++] = (char) va_arg(args, int);
                             break;
+                        char *insert; //no definitions inside switches is dumb
                         case 's':
                             insert = (char*) va_arg(args, char*);
                             for (int i = 0; insert[i] != '\0'; i++) {
@@ -42,9 +42,13 @@ int write(char *str, int *i, const char *format, ...) {
                             break;
                     }
                 }
+                else {
+                    str[index++] = format[r];
+                }
                 break;
             default:
                 str[index++] = format[r];
+                break;
         }
     }
     *i = index;
@@ -115,8 +119,8 @@ int main(int argc, char *argv[]) {
                             break;
                     }
                 } while (c != '\n' && i < SPACESLEN-1);
+                write(spaces, &i, "%%{F- B- -o -u}");
                 spaces[i] = '\0';
-                //write(spaces, &i, "\0");
                 break;
             }
         }

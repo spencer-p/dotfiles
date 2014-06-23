@@ -7,6 +7,7 @@ DATA=$PANELDIR/paneldata.txt
 
 DIMENSIONS="x22"
 FONT="-*-terminus-medium-r-normal-*-16-*-*-*-c-*-*-1"
+#FONT="-*-tewi-medium-r-normal-*-11-*-*-*-*-*-*-1"
 UNDERLINE="2"
 BG="#ff272727"
 FG="#ffc5c8c6"
