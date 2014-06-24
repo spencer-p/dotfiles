@@ -103,9 +103,14 @@ URxvt.cursorColor:                    #ffffff
 ! URxvt*borderColor:                    color
 ! URxvt*iconFile:                       file
 
-URxvt.font:                           xft:Terminus:size=10
-URxvt.boldFont:                       xft:Terminus:size=10:bold
-!URxvt.font:                           xft:Tewi:size=11
+URxvt.font: -*-terminus-medium-r-normal-*-12-*-*-*-*-*-*-*
+URxvt.boldFont: -*-terminus-bold-r-normal-*-12-*-*-*-*-*-*-*
+
+!URxvt.font:                           -lucy-tewi-medium-r-normal-*-11-90-75-75-p-58-iso10646-1
+!URxvt.boldFont:                           -lucy-tewi-medium-r-normal-*-11-90-75-75-p-58-iso10646-1
+
+!URxvt.font:                           -*-lemon-*-*-*-*-*-*-*-*-*-*-*-*
+!URxvt.boldFont:                           -*-lemon-*-*-*-*-*-*-*-*-*-*-*-*
 
 ! URxvt*italicFont:                     fontname
 ! URxvt*boldItalicFont:                 fontname

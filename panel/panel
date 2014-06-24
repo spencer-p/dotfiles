@@ -6,7 +6,7 @@ PANELDIR=$HOME/.config/panel
 DATA=$PANELDIR/paneldata.txt
 
 DIMENSIONS="x22"
-FONT="-*-terminus-medium-r-normal-*-16-*-*-*-c-*-*-1"
+FONT="-*-terminus-medium-r-normal-*-14-*-*-*-c-*-*-1"
 #FONT="-*-tewi-medium-r-normal-*-11-*-*-*-*-*-*-1"
 UNDERLINE="2"
 BG="#ff272727"
