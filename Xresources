@@ -104,9 +104,9 @@ URxvt.cursorColor:                    #ffffff
 ! URxvt*iconFile:                       file
 
 URxvt.font:                           xft:Terminus:size=10
+URxvt.boldFont:                       xft:Terminus:size=10:bold
 !URxvt.font:                           xft:Tewi:size=11
 
-! URxvt*boldFont:                       fontname
 ! URxvt*italicFont:                     fontname
 ! URxvt*boldItalicFont:                 fontname
 ! URxvt*intensityStyles:                boolean
