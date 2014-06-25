@@ -24,4 +24,4 @@ bspc rule -a "Galculator" "floating=on"
 bspc rule -a "gimp" "floating=on"
 bspc rule -a "feh" "floating=on"
 bspc rule -a "Desmume" "floating=on"
-
+bspc rule -a "vlc" "pseudo_tiled=on"
