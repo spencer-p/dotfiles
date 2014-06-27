@@ -10,7 +10,7 @@ FONT1="-*-terminus-medium-r-normal-*-12-*-*-*-c-*-*-1"
 FONT2="-*-stlarch-medium-r-normal-*-10-*-*-*-c-*-*-1"
 #FONT1="-*-tewi-medium-r-normal-*-11-*-*-*-*-*-*-1"
 UNDERLINE="2"
-BG="#ff272727"
+BG="#ff202020"
 FG="#ffc5c8c6"
 
 if [ -e $DATA ]; then
