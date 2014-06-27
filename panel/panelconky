@@ -51,10 +51,11 @@ cpu_avg_samples 2
 
 TEXT
 S:%{r}\
-%{F-}CPU1: %{F\#ff7c69b7}${cpu cpu1}%% %{F-}CPU2: %{F\#ff7c69b7}${cpu cpu2}%% \
-%{F-}RAM: %{F\#ff7d859b}${memperc}%% \
-%{F-}/: %{F\#ff616ab7}${fs_used_perc /}%% %{F-}/home: %{F\#ff616ab7}${fs_used_perc /home}%% \
-${if_up wlan0}%{F-}IP: %{F\#ff61859b}${addr wlan0} %{F-}Weather: %{F\#ff6185b6}${execi 300 weather 95070} \
-${else}%{F\#ff6185b6}OFFLINE ${endif}\
-%{F-}Volume: %{F\#ff9d87b9}${exec getvol}% \
-%{F-}${time %A, %B %d %I:%M} 
+%{F-} %{F\#ff7c69b7}${cpu cpu1}%% %{F\#ff7c69b7}${cpu cpu2}%%   \
+%{F-} %{F\#ff7d859b}${memperc}%%   \
+%{F-} %{F\#ff616ab7}${fs_used_perc /}%% %{F-} %{F\#ff616ab7}${fs_used_perc /home}%%   \
+${if_up wlan0}%{F-}${execi 300 getwifi} %{F\#ff61859b}${addr wlan0}   %{F-} %{F\#ff6185b6}${execi 300 weather 95070}   \
+${else}%{F\#ff6185b6}OFFLINE   ${endif}\
+%{F-} %{F\#ff9d87b9}${exec getvol}%   \
+%{F-}${time %A, %B %d %I:%M}   \
+%{F\#ff3292cf}  

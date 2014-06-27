@@ -6,8 +6,9 @@ PANELDIR=$HOME/.config/panel
 DATA=$PANELDIR/paneldata.txt
 
 DIMENSIONS="x22"
-FONT="-*-terminus-medium-r-normal-*-14-*-*-*-c-*-*-1"
-#FONT="-*-tewi-medium-r-normal-*-11-*-*-*-*-*-*-1"
+FONT1="-*-terminus-medium-r-normal-*-12-*-*-*-c-*-*-1"
+FONT2="-*-stlarch-medium-r-normal-*-10-*-*-*-c-*-*-1"
+#FONT1="-*-tewi-medium-r-normal-*-11-*-*-*-*-*-*-1"
 UNDERLINE="2"
 BG="#ff272727"
 FG="#ffc5c8c6"
@@ -20,4 +21,4 @@ mkfifo $DATA
 bspc control --subscribe > $DATA &
 conky -c $PANELDIR/panelconky > $DATA &
 
-cat $DATA | $PANELDIR/panel_parse | bar -b -g $DIMENSIONS -f $FONT -u $UNDERLINE -B $BG -F $FG
+cat $DATA | $PANELDIR/panel_parse | bar -b -g $DIMENSIONS -f $FONT1,$FONT2 -u $UNDERLINE -B $BG -F $FG
