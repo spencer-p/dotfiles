@@ -10,8 +10,6 @@ PATH=$HOME/.config/bin:$PATH
 PROMPT_COMMAND=setprompt
 export EDITOR="vim"
 
-gtkheaders=`pkg-config --libs --cflags gtk+-2.0`
-
 setprompt () {
 returned=$?
 #PS1='\[\033[01;32m\]\u@\h \
