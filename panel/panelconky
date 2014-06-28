@@ -55,7 +55,7 @@ S:%{r}\
 %{F-} %{F\#ff7d859b}${memperc}%%   \
 %{F-} %{F\#ff616ab7}${fs_used_perc /}%% %{F-} %{F\#ff616ab7}${fs_used_perc /home}%%   \
 ${if_up wlan0}%{F-}${execi 300 getwifi} %{F\#ff61859b}${addr wlan0}   %{F-} %{F\#ff6185b6}${execi 300 weather 95070}   \
-${else}%{F\#ff6185b6}OFFLINE   ${endif}\
+${else}%{F-} %{F\#ff6185b6}OFFLINE   ${endif}\
 %{F-} %{F\#ff9d87b9}${exec getvol}%   \
 %{F-}${time %A, %B %d %I:%M}   \
 %{F\#ff3292cf}  
