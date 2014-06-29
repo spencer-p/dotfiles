@@ -119,6 +119,15 @@ XF86AudioLowerVolume
 XF86AudioMute
     togglemute 
 
+XF86AudioPrev
+    spotinterface Previous
+
+XF86AudioNext
+    spotinterface Next
+
+XF86AudioPlay
+    spotinterface PlayPause
+
 # make sxhkd reload its configuration files:
 super + Escape
     pkill -USR1 -x sxhkd
