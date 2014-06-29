@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ `getvol` == "mute" ]
+then
+    echo 
+else
+    echo 
+fi

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ "`ps -A|grep spotify`" == "" ]
+then
+    exit
+fi
+
+if [ `spotinterface get PlaybackStatus | grep Playing -c` == '1' ]
+then
+    STATUS=""
+else
+    STATUS=""
+fi
+
+echo $STATUS

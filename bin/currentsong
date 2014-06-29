@@ -1,0 +1,6 @@
+#!/usr/bin/perl
+
+$info = `spotinterface get Metadata 2> /dev/null`;
+if ($info =~ m/string "xesam:title"[ \n]*variant[ ]*string "(.*)"/) {
+    print $1
+}
