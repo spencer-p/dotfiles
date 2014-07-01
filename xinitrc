@@ -8,7 +8,7 @@ xset r rate 250 30 #keyboard repeat rate
 sxhkd & #key bindings
 compton & #pretty windows
 urxvtd -q -f -o #terminal daemon in background no & because --fork option is set
-xrdb -merge ~/.Xresources #xresources for pointer and urxvt colors and stuff
+xrdb ~/.Xresources #xresources for pointer and urxvt colors and stuff
 xsetroot -cursor_name left_ptr & #not stupid cursor
 xset +fp /usr/share/fonts/local #fix font finding or something
 xset fp rehash
