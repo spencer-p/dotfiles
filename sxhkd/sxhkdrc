@@ -92,7 +92,8 @@ super + Return
     urxvtc
 
 super + d
-    dmenu_run -i -p 'Run:' -nb '#151515' -nf '#b0b0b0' -sb '#888888' -sf '#000000' -fn '-*-terminus-medium-r-normal-*-14-*-*-*-c-*-*-1'
+    dmenu_run -i -h 14 -w 250 -dim 0.4 -y 500 -x 880 -q -l 15 -p '>' -nb '#232323' -nf '#ffffff' -sb '#232323' -sf '#7fa6d7' -fn '-*-terminus-medium-r-normal-*-12-*-*-*-c-*-*-1'
+    #dmenu_run -i -p 'Run:' -nb '#151515' -nf '#b0b0b0' -sb '#888888' -sf '#000000' -fn '-*-terminus-medium-r-normal-*-14-*-*-*-c-*-*-1'
 
 super + c
     google-chrome-stable
