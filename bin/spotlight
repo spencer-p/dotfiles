@@ -13,7 +13,7 @@ fi
 
 FIRSTWORD=`echo $INPUT | grep -Po '^[^ ]+'` #strips everything but the first word. useful for stuff
 
-if type $FIRSTWORD
+if command -v $FIRSTWORD
 then
     echo $INPUT | sh
     exit
