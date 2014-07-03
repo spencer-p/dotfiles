@@ -3,8 +3,8 @@
 cd $HOME
 
 FILES=`find docs downloads vids pics drive -type f`
-BINARIES=`find \`echo $PATH|sed 's/:/ /g'\` -executable -printf "%f\n"`
-INPUT=`echo "$FILES" "$BINARIES" | dmenu -i -w 800 -dim 0.4 -o 0.9 -y 320 -x 560 -q -l 11 -p '>' -nb '#232323' -nf '#ffffff' -sb '#232323' -sf '#5fafd7' -fn 'Arial:pixelsize=28'`
+BINARIES=`find \`echo $PATH|sed 's/:/ /g'\` -executable -type f -printf "%f\n"`
+INPUT=`echo -e "$FILES\n$BINARIES" | dmenu -i -w 800 -dim 0.4 -o 0.9 -y 320 -x 560 -q -l 11 -p '>' -nb '#232323' -nf '#ffffff' -sb '#232323' -sf '#5fafd7' -fn 'Arial:pixelsize=28'`
 
 if [ $? -eq 1 ]
 then
