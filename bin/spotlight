@@ -1,0 +1,40 @@
+#!/bin/bash
+
+cd $HOME
+
+FILES=`find docs downloads vids pics drive -type f`
+BINARIES=`find \`echo $PATH|sed 's/:/ /g'\` -executable -printf "%f\n"`
+INPUT=`echo "$FILES" "$BINARIES" | dmenu -i -w 800 -dim 0.4 -o 0.9 -y 320 -x 560 -q -l 11 -p '>' -nb '#232323' -nf '#ffffff' -sb '#232323' -sf '#5fafd7' -fn 'Arial:pixelsize=28'`
+
+if [ $? -eq 1 ]
+then
+    exit
+fi
+
+FIRSTWORD=`echo $INPUT | grep -Po '^[^ ]+'` #strips everything but the first word. useful for stuff
+
+if type $FIRSTWORD
+then
+    echo $INPUT | sh
+    exit
+fi
+
+if [ ! -f "$INPUT" ]
+then
+    if [ ! -z "`echo $INPUT | grep -P '^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$'`" ]
+    then
+        google-chrome-stable "$INPUT"
+    fi
+    if [ "$FIRSTWORD" == "search" ]
+    then
+        QUERY="https://www.google.com/search?q=`echo $INPUT | sed 's/ /+/g'`"
+        google-chrome-stable $QUERY
+    fi
+    exit
+fi
+
+mimeo $INPUT
+if [ $? -eq 1 ]
+then
+    urxvtc -e vim "$INPUT"
+fi
