@@ -15,7 +15,7 @@ FIRSTWORD=`echo $INPUT | grep -Po '^[^ ]+'` #strips everything but the first wor
 
 if command -v $FIRSTWORD
 then
-    echo $INPUT | sh
+    $INPUT &
     exit
 fi
 
