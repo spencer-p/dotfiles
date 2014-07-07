@@ -36,6 +36,9 @@ super + y
 super + m
     bspc window -s biggest
 
+super + p
+    bspc window -t pseudo_tiled
+
 super + {_,shift + }{h,j,k,l}
     bspc window -{f,s} {left,down,up,right}
 

@@ -6,7 +6,7 @@ FILES=`find docs downloads vids pics drive -type f`
 BINARIES=`find \`echo $PATH|sed 's/:/ /g'\` -executable -not -type d -printf "%f\n"`
 INPUT=`echo -e "$FILES\n$BINARIES" | dmenu -i -w 800 -dim 0.4 -o 0.9 -y 320 -x 560 -q -l 11 -p '>' -nb '#232323' -nf '#ffffff' -sb '#232323' -sf '#5fafd7' -fn 'Arial:pixelsize=28'`
 
-if [ $? -eq 1 ]
+if [ $? -eq 1 -o "$INPUT" == "" ]
 then
     exit
 fi
@@ -15,7 +15,7 @@ FIRSTWORD=`echo $INPUT | grep -Po '^[^ ]+'` #strips everything but the first wor
 
 if command -v $FIRSTWORD
 then
-    $INPUT &
+    echo "$INPUT &" | sh &
     exit
 fi
 
@@ -24,9 +24,9 @@ then
     if [ ! -z "`echo $INPUT | grep -P '^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$'`" ]
     then
         google-chrome-stable "$INPUT"
-    fi
-    if [ "$FIRSTWORD" == "search" ]
-    then
+    #fi
+    #if [ "$FIRSTWORD" == "search" ]
+    else
         QUERY="https://www.google.com/search?q=`echo $INPUT | sed 's/ /+/g'`"
         google-chrome-stable $QUERY
     fi
@@ -34,7 +34,7 @@ then
 fi
 
 mimeo $INPUT
-if [ $? -eq 1 ]
+if [ ! $? -eq 0 ]
 then
     urxvtc -e vim "$INPUT"
 fi
