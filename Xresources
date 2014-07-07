@@ -102,6 +102,7 @@ URxvt.cursorColor:                    #ffffff
 ! URxvt*pointerColor2:                  color
 ! URxvt*borderColor:                    color
 ! URxvt*iconFile:                       file
+!
 
 URxvt.font: -*-terminus-medium-r-normal-*-12-*-*-*-*-*-*-*
 URxvt.boldFont: -*-terminus-bold-r-normal-*-12-*-*-*-*-*-*-*
@@ -177,9 +178,9 @@ URxvt.url-launcher:                   /usr/bin/chromium
 !Xcursor.theme: Obsidian
 Xcursor.theme: OpenZone_Ice
 Xft.lcdfilter: lcddefault
-Xft.antialiase: 1
+Xft.antialias: true
 Xft.autohint: 0
-Xft.hinting: 1
+Xft.hinting: true
 Xft.hintstyle: hintfull
 Xft.rgba: rgb
 
