@@ -22,4 +22,4 @@ bspc control --subscribe > $DATA &
 conky -c $PANELDIR/panelconky > $DATA &
 
 sleep 0.15
-cat $DATA | $PANELDIR/panel_parse | bar -b -g $DIMENSIONS -f $FONT1,$FONT2 -u $UNDERLINE -B $BG -F $FG | sh #pipe into sh for fancy commands
+$PANELDIR/panel_parse < $DATA | bar -b -g $DIMENSIONS -f $FONT1,$FONT2 -u $UNDERLINE -B $BG -F $FG | sh #pipe into sh for fancy commands

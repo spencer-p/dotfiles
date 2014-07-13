@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ `getvol` == "mute" ]
+if [ "`getvol`" == "mute" ]
 then
     echo 
 else

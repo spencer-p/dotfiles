@@ -18,7 +18,9 @@ form input[type="text"] {
     border: 1px solid black;
     height: 25px;
     background: #181818;
-    color: #638b87
+    color: #638b87;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 form input[type="submit"] {

@@ -10,7 +10,7 @@ then
     exit
 fi
 
-amixer -q set Master 3dB$1
+amixer -q set Master 5%$1 unmute
 
 vol=`getvol|grep "[0-9]*" -o`
 
