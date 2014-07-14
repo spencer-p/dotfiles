@@ -1,6 +1,15 @@
-#!/usr/bin/perl
+#!/usr/bin/sh
 
-$info = `spotinterface get Metadata 2> /dev/null`;
-if ($info =~ m/string "xesam:title"[ \n]*variant[ ]*string "(.*)"/) {
-    print $1
-}
+songname=`spotinterface get Metadata 2> /dev/null | awk '
+{
+    if ( $0 ~ /[ ]*string "xesam:title"/ ) {
+        getline line; 
+        sub(/[ ]*variant[ ]*string "/, "", line); sub(/"$/, "", line); 
+        print line;
+    }
+}'`
+
+if [ -z "$songname" ]; then
+    songname="none"
+fi
+echo %{F-}$(playingicon) %{F\#ff7fa6b9}$songname 
