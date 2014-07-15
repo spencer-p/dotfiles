@@ -14,7 +14,7 @@ a:hover {
 }
 
 form input[type="text"] {
-    width: 250px;
+    width: 200px;
     border: 1px solid black;
     height: 25px;
     background: #181818;

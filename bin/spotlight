@@ -11,11 +11,11 @@ then
     exit
 fi
 
-FIRSTWORD=`echo $INPUT | grep -Po '^[^ ]+'` #strips everything but the first word. useful for stuff
+FIRSTWORD=`echo $INPUT | awk '{print $1}'` #strips everything but the first word. useful for stuff
 
 if command -v $FIRSTWORD
 then
-    echo "$INPUT &" | sh &
+    eval "exec $INPUT"
     exit
 fi
 
