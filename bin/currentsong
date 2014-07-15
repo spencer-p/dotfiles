@@ -1,6 +1,6 @@
 #!/usr/bin/sh
 
-songname=`spotinterface get Metadata 2> /dev/null | awk '
+SONGNAME=`spotinterface get Metadata 2> /dev/null | awk '
 {
     if ( $0 ~ /[ ]*string "xesam:title"/ ) {
         getline line; 
@@ -9,7 +9,15 @@ songname=`spotinterface get Metadata 2> /dev/null | awk '
     }
 }'`
 
-if [ -z "$songname" ]; then
+if [ `spotinterface get PlaybackStatus | grep Playing -c` == '1' ]
+then
+    STATUS=""
+else
+    STATUS=""
+fi
+
+if [ -z "$SONGNAME" ]; then
     songname="none"
 fi
-echo %{F-}$(playingicon) %{F\#ff7fa6b9}$songname 
+
+echo %{F-}$STATUS %{F\#ff7fa6b9}$SONGNAME 
