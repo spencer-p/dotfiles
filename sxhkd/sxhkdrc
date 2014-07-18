@@ -19,7 +19,7 @@ super + b
 super + {s,f}
     bspc window -t {floating,fullscreen}
 
-super + {grave,Tab}
+super + {Tab,grave}
     bspc {window,desktop} -f last
 
 super + apostrophe
@@ -41,6 +41,9 @@ super + p
 
 super + {_,shift + }{h,j,k,l}
     bspc window -{f,s} {left,down,up,right}
+
+super + {_,alt + }space
+    bspc window last.{floating,tiled} -f
 
 #super + {_,shift + }c
 #    bspc window -f {next,prev}

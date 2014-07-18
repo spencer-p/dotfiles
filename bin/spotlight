@@ -15,7 +15,8 @@ FIRSTWORD=`echo $INPUT | awk '{print $1}'` #strips everything but the first word
 
 if command -v $FIRSTWORD
 then
-    eval "exec $INPUT"
+    #eval "exec \"$INPUT\""
+    echo $INPUT | sh &
     exit
 fi
 
