@@ -57,6 +57,6 @@ S:%{r}\
 ${if_up wlan0}%{F-}${exec wifiicon} %{F\#ff61859b}${addr wlan0}   %{F-} %{F\#ff6185b6}${execi 300 weather 95070}   \
 ${else}%{F-} %{F\#ff6185b6}OFFLINE   ${endif}\
 %{F-}${exec volicon} %{F\#ff9d87b9}${exec getvol}%   \
-${if_running spotify}%{A:spotinterface PlayPause:}%{F\#ff7fa6b9}${exec currentsong}%{A}   ${endif}\
-%{F-}${time %A, %B %d %I:%M}  \
+${if_running spotify}%{A:spotinterface PlayPause:}%{F\#ff7fa6b9}${exec spotinterface query song}%{A}   ${endif}\
+%{F-}%{A:notify-send "       Calendar" "`echo && cal`":}${time %A, %B %d %I:%M}%{A}  \
 %{F\#ff3292cf}  
