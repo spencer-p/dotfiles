@@ -20,3 +20,5 @@ rm $TMPDIR/spotify.jpeg
 
 notify-send -i $TMPDIR/spotify.png "$song" "$album
 by `spotinterface query artist`"
+
+sleep 12 && mv $TMPDIR/spotify.png old_spotify.png
