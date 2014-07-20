@@ -223,5 +223,5 @@
 #
 [spotify]
     appname = Spotify
-    script = "newspotifysong"
+    script = "spotifyalert"
     format = ""
