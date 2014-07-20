@@ -223,4 +223,5 @@
 #
 [spotify]
     appname = Spotify
-    script = "togglemute"
+    script = "newspotifysong"
+    format = ""

@@ -1,0 +1,22 @@
+#!/bin/sh
+
+if [ -z "$@" ]; then
+    song=`spotinterface query song raw`
+    album=`spotinterface query album`
+else
+    song=$2
+    album=$3
+fi
+
+togglemute Spotify
+
+TMPDIR=$HOME/tmp
+
+file=`curl -s -S https://embed.spotify.com/oembed/?url=\`spotinterface get Metadata | grep -o -m 1 'spotify:track:[^"]*'\`| sed 's/.*"thumbnail_url":"\([^"]*\)".*/\1/;s.\\\/./.g'`
+
+wget $file -O $TMPDIR/spotify.jpeg
+convert $TMPDIR/spotify.jpeg -resize 30% $TMPDIR/spotify.png
+rm $TMPDIR/spotify.jpeg
+
+notify-send -i $TMPDIR/spotify.png "$song" "$album
+by `spotinterface query artist`"
