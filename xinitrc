@@ -14,6 +14,6 @@ xset +fp /usr/share/fonts/local #fix font finding or something
 xset fp rehash
 naturalscrolling #uses xset to invert scrolling OSX style
 dropboxd & #dropbox duh
-customunclutter & #hide mouse when not in use, this is an alias in my bashrc
+unclutter -noevents -root
 $HOME/.config/panel/panel & #start my panel
 exec bspwm 2> ~/.bspwm.log

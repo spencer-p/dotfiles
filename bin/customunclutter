@@ -1,3 +1,0 @@
-#!/bin/sh
-
-unclutter -noevents -root -not Google-chrome-stable Spotify
