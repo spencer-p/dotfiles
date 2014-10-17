@@ -4,39 +4,21 @@ alias ls='ls --color=auto --group-directories-first -X'
 alias grep='grep --colour=auto'
 alias sudo='sudo '
 #alias pacman='pacmatic'
-alias bc='bc -q'
+alias bc='bc -ql'
 alias js='js17'
+alias wifiwerk='if ping -c 1 -W 3 google.com &> /dev/null; then echo werks; else echo does not werk; sudo netctl restart "$(netctl list|sed "s/^* //")"; echo werks; fi'
+alias get='find -name'
 PATH=$HOME/.config/bin:$PATH
-PROMPT_COMMAND=setprompt
+PS1='\[\033[1;`[[ $? -eq 0 ]] && echo 36 || echo 31`m\]──╼\[\033[0m\] '
 export EDITOR="vim"
 
-setprompt () {
-returned=$?
-#PS1='\[\033[01;32m\]\u@\h \
-#\[\033[01;36m\][`trimwd 3 "\`pwd\`" $HOME`]\
-#\
-#\[\033[1;31m\]`if [ $returned != 0 ]; then echo "[$returned] "; fi;`\
-#\[\033[0;35m\]'
-PS1='\[\033[01;36m\][`trimwd 3 "\`pwd\`" $HOME`]\
-\[\033[1;31m\] \
-\[\033[1;31m\]`if [ $returned != 0 ]; then echo "[$returned] "; fi;`\
-\[\033[01;32m\]» \
-\[\033[0;35m\]'
-}
-
-#\[\033[1;35m\][`date +%I:%M`] \
-
-preexec_invoke_exec () {
-    [ -n "$COMP_LINE" ] && return  # do nothing if completing
-    local this_command=`history 1 | sed -e "s/^[ ]*[0-9]*[ ]*//g"`;
-    preexec "$this_command"
-}
-trap 'preexec_invoke_exec' DEBUG
-
-preexec () {
-    echo -n -e "\033[00m"
-    tput sgr0
-}
+  #OLD SETPROMPT
+    #returned=$?
+    #PS1='\[\033[01;36m\][`trimwd 3 "\`pwd\`" $HOME`]\
+    #\[\033[1;31m\] \
+    #\[\033[1;31m\]`if [ $returned != 0 ]; then echo "[$returned] "; fi;`\
+    #\[\033[01;32m\]» \
+    #\[\033[0;35m\]'
 
 shopt -s extglob
 

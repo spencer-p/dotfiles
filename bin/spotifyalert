@@ -7,18 +7,34 @@ else
     song=$2
     album=$3
 fi
+artist=`spotinterface query artist`
 
-togglemute Spotify
+amixer set Master unmute
 
-TMPDIR=$HOME/tmp
+TMPDIR=$HOME/pics/albumart
 
-file=`curl -s -S https://embed.spotify.com/oembed/?url=\`spotinterface get Metadata | grep -o -m 1 'spotify:track:[^"]*'\`| sed 's/.*"thumbnail_url":"\([^"]*\)".*/\1/;s.\\\/./.g'`
+#one song had a comma in it and broke my whole setup >:[
 
-wget $file -O $TMPDIR/spotify.jpeg
-convert $TMPDIR/spotify.jpeg -resize 30% $TMPDIR/spotify.png
-rm $TMPDIR/spotify.jpeg
+sanitize() {
+    echo $@ | sed 's/,/ /g'
+}
 
-notify-send -i $TMPDIR/spotify.png "$song" "$album
+filename() {
+    echo $TMPDIR/"$(sanitize $artist)"/"$(sanitize $album)"
+}
+
+if [ ! -f "$(filename)".png ]; then
+    [ ! -d $TMPDIR/"$(sanitize $artist)" ] && mkdir $TMPDIR/"$(sanitize $artist)"
+
+    url=`curl -s -S https://embed.spotify.com/oembed/?url=\`spotinterface get Metadata | grep -o -m 1 'spotify:track:[^"]*'\`| sed 's/.*"thumbnail_url":"\([^"]*\)".*/\1/;s.\\\/./.g'`
+
+    wget $url -O "$(filename)".jpeg
+
+    #add a blank extra 6px at the bottom because dunst is dumb
+    convert "$(filename)".jpeg -resize 30% -background '#00000000' -extent 90x96 "$(filename)".png
+
+    rm "$(filename)".jpeg
+fi
+
+notify-send -i "$(filename)".png "$song" "$album
 by `spotinterface query artist`"
-
-sleep 12 && mv $TMPDIR/spotify.png old_spotify.png

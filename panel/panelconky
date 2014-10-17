@@ -1,10 +1,7 @@
-out_to_x no
-own_window no
 out_to_console yes
 background no
 max_text_width 0
 format_human_readable true
-double_buffer true
 
 # Update interval in seconds
 update_interval 1
@@ -25,9 +22,6 @@ if_up_strictness address
 # Add spaces to keep things from moving about?  This only affects certain objects.
 # use_spacer should have an argument of left, right, or none
 use_spacer none
-
-# Force UTF8? note that UTF8 support required XFT
-override_utf8_locale no
 
 # number of cpu samples to average
 # set to 1 to disable averaging
@@ -55,8 +49,8 @@ S:%{r}\
 %{F-} %{F\#ff7d859b}${memperc}%%   \
 %{F-} %{F\#ff616ab7}${fs_used_perc /}%% %{F-} %{F\#ff616ab7}${fs_used_perc /home}%%   \
 ${if_up wlan0}%{F-}${exec wifiicon} %{F\#ff61859b}${addr wlan0}   %{F-} %{F\#ff6185b6}${execi 300 weather 95070}   \
-${else}%{F-} %{F\#ff6185b6}OFFLINE   ${endif}\
+${else}%{F-} %{F\#ff6185b6}offline   ${endif}\
 %{F-}${exec volicon} %{F\#ff9d87b9}${exec getvol}%   \
-${if_running spotify}%{A:spotinterface PlayPause:}%{F\#ff7fa6b9}${exec spotinterface query song}%{A}   ${endif}\
+${if_match "${exec spotinterface query song raw}" != ""}%{A:spotinterface PlayPause:}%{F\#ff7fa6b9}${exec spotinterface query song}%{A}   ${endif}\
 %{F-}%{A:notify-send "       Calendar" "`echo && cal`":}${time %A, %B %d %I:%M}%{A}  \
 %{F\#ff3292cf}  

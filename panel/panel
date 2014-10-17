@@ -18,8 +18,7 @@ if [ -e $DATA ]; then
 fi
 mkfifo $DATA
 
-bspc control --subscribe > $DATA &
 conky -c $PANELDIR/panelconky > $DATA &
+bspc control --subscribe > $DATA &
 
-sleep 0.15
 $PANELDIR/panel_parse < $DATA | bar -b -g $DIMENSIONS -f $FONT1,$FONT2 -u $UNDERLINE -B $BG -F $FG | sh #pipe into sh for fancy commands

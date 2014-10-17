@@ -31,9 +31,10 @@ set tabstop=4
 set softtabstop=4
 
 "colorscheme molokai
-colorscheme moss
+"colorscheme moss
+colorscheme pablo
 
-let &t_Co=256
+let &t_Co=16
 
 "inoremap { {<CR><BS>}<Esc>bo
 "inoremap { {<CR><BS>}<Esc>ko

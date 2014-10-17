@@ -2,7 +2,7 @@
 # bspwm hotkeys
 #
 
-super + alt + Escape
+super + alt +{_,shift+} Escape
     killall panel bar conky panel_parse xtitle; \
     bspc quit
 
@@ -39,11 +39,11 @@ super + m
 super + p
     bspc window -t pseudo_tiled
 
-super + {_,shift + }{h,j,k,l}
+super + {_,shift + } {h,j,k,l}
     bspc window -{f,s} {left,down,up,right}
 
-super + {_,alt + }space
-    bspc window last.{floating,tiled} -f
+super + space
+    [[ "$(bspc query -T -w focused | grep "f------- \*")" ]] && bspc window last.tiled.local -f || bspc window last.floating.local -f
 
 #super + {_,shift + }c
 #    bspc window -f {next,prev}
@@ -67,10 +67,10 @@ super + ctrl + {h,j,k,l}
 #    bspc {window -p cancel,desktop -c}
 
 super + alt + {h,j,k,l}
-    bspc window -e {left -10, down +10, up -10, right +10}
+    bspc window -e {left -50, down +50, up -50, right +50}
 
 super + alt + shift + {h,j,k,l}
-    bspc window -e {right -10, up +10, down -10, left +10}
+    bspc window -e {right -50, up +50, down -50, left +50}
 
 super + ctrl + {1-9}
     bspc window -r 0.{1-9}
@@ -105,7 +105,7 @@ super + d
     spotlight #my own custom command
 
 super + c
-    google-chrome-stable
+    bspc rule -a Google-chrome-stable -o desktop=$(bspc query -D -d focused) && google-chrome-stable
 
 #alt + l
 #    sleep 0.5 && xset dpms force off    
@@ -137,6 +137,9 @@ XF86AudioNext
 
 XF86AudioPlay
     spotinterface PlayPause
+
+super + XF86Eject
+    xset dpms force off
 
 # make sxhkd reload its configuration files:
 super + Escape

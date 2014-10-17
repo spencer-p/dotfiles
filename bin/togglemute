@@ -4,11 +4,6 @@ state=`amixer get Master|grep --only-matching -e '\[o[nf]*\]'`
 
 if [ $state == '[on]' ]
 then
-    if [ $1 == "Spotify" ] #Spotify gets passed if called by dunst, don't want to mute spotify
-    then
-        exit
-    fi
-
     amixer set Master mute
     notify-send -i audio-volume-low-zero-panel -t 3000 "Volume" -h "int:value:0"
     exit
@@ -16,11 +11,6 @@ fi
 if [ $state == '[off]' ]
 then
     amixer set Master unmute
-
-    if [ $1 == "Spotify" ] #If we're getting called by dunst, don't send a message
-    then
-        exit
-    fi
 
     vol=`getvol|grep "[0-9]*" -o`
 

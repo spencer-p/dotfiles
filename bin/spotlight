@@ -4,7 +4,7 @@ cd $HOME
 
 FILES=`find docs downloads vids pics drive -type f`
 BINARIES=`find \`echo $PATH|sed 's/:/ /g'\` -executable -not -type d -printf "%f\n"`
-INPUT=`echo -e "$FILES\n$BINARIES" | dmenu -i -w 800 -dim 0.4 -o 0.9 -y 320 -x 560 -q -l 11 -p '>' -nb '#232323' -nf '#ffffff' -sb '#232323' -sf '#5fafd7' -fn 'Arial:pixelsize=28'`
+INPUT=`echo -e "$FILES\n$BINARIES" | dmenu -f -i -w 800 -dim 0.4 -o 0.9 -y 320 -x 560 -q -l 11 -p '>' -nb '#232323' -nf '#ffffff' -sb '#232323' -sf '#5fafd7' -fn 'Arial:pixelsize=28'`
 
 if [ $? -eq 1 -o "$INPUT" == "" ]
 then
@@ -15,8 +15,8 @@ FIRSTWORD=`echo $INPUT | awk '{print $1}'` #strips everything but the first word
 
 if command -v $FIRSTWORD
 then
-    #eval "exec \"$INPUT\""
-    echo $INPUT | sh &
+    eval "exec $INPUT"
+    #echo $INPUT | sh &
     exit
 fi
 
@@ -34,7 +34,7 @@ then
     exit
 fi
 
-mimeo $INPUT
+mimeo "$INPUT"
 if [ ! $? -eq 0 ]
 then
     urxvtc -e vim "$INPUT"

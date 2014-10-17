@@ -16,9 +16,9 @@ URxvt.scrollBar:                      false
 ! URxvt*scrollTtyKeypress:              boolean
 ! URxvt*scrollWithBuffer:               boolean
 ! URxvt*inheritPixmap:                  boolean
-URxvt.transparent:                    true
+!URxvt.transparent:                    true
 ! URxvt*tintColor:                      #222222
-URxvt.shading:                        55
+!URxvt.shading:                        55
 ! URxvt*blurRadius:                     HxV
 ! URxvt*fading:                         number
 ! URxvt*fadeColor:                      color
@@ -33,7 +33,7 @@ URxvt.shading:                        55
 URxvt.cursorUnderline:                true
 URxvt.cursorBlink:                    true 
 ! URxvt*pointerBlank:                   true
-URxvt.background:                     #131313
+URxvt.background:                     [75]#131313
 URxvt.foreground:                     #ffffff
 
 !COLORS. everything is blue
@@ -124,7 +124,7 @@ URxvt.boldFont: -*-terminus-bold-r-normal-*-12-*-*-*-*-*-*-*
 ! URxvt*iconName:                       string
 ! URxvt*saveLines:                      number
 ! URxvt*buffered:                       boolean
-!URxvt.depth:                          32
+URxvt.depth:                          32
 ! URxvt*visual:                         number
 ! URxvt*transient-for:                  windowid
 ! URxvt*override-redirect:              boolean
@@ -146,7 +146,10 @@ URxvt.boldFont: -*-terminus-bold-r-normal-*-12-*-*-*-*-*-*-*
 ! URxvt*secondaryScroll:                boolean
 ! URxvt*perl-lib:                       string
 ! URxvt*perl-eval:                      perl-eval
-URxvt.perl-ext-common:                default
+URxvt.perl-ext-common:                default,url-select
+URxvt.keysym.C-i: perl:url-select:select_next
+URxvt.url-select.launcher: incognito
+URxvt.url-select.underline: true
 ! add matcher for urls
 ! URxvt*perl-ext:                       string
 URxvt*iso14755:                       false
@@ -157,10 +160,10 @@ URxvt*iso14755_52:                    false
 ! URxvt*background.expr:                string
 ! URxvt*background.interval:            seconds
 ! URxvt*bell-command:                   string
-URxvt.matcher.button:                 1
+!URxvt.matcher.button:                 1
 ! URxvt*matcher.launcher:               string
 ! URxvt*matcher.launcher.*:             string
-! URxvt*matcher.pattern.*:              string
+!URxvt*matcher.pattern.*:              (https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?
 ! URxvt*matcher.rend.*:                 string
 ! URxvt*remote-clipboard.fetch:         string
 ! URxvt*remote-clipboard.store:         string
@@ -173,10 +176,10 @@ URxvt.matcher.button:                 1
 ! URxvt*tab-fg:                         colour
 ! URxvt*tabbar-bg:                      colour
 ! URxvt*tabbar-fg:                      colour
-URxvt.url-launcher:                   /usr/bin/chromium
+!URxvt.url-launcher:                   incognito
 
 !Xcursor.theme: Obsidian
-Xcursor.theme: OpenZone_Ice
+Xcursor.theme: OpenZone_Ice_Slim
 Xft.lcdfilter: lcddefault
 Xft.antialias: true
 Xft.autohint: 0
