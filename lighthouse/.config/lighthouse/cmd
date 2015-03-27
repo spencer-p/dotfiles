@@ -45,10 +45,19 @@ function findfile {
     IFS=$' '
 }
 
+function web {
+    if [[ $@ =~ (https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/? ]]
+    then
+        echo -n "{$(image googlechrome) $@|google-chrome-stable $@}"
+    else
+        echo -n "{search $L|google-chrome-stable https://www.google.com/search?q=$L}"
+    fi
+}
+
 while read L; do
     autocomp "$L"
     findexec "$L"
-    echo -n "{search $L|google-chrome-stable https://www.google.com/search?q=$L}"
+    web "$L"
     findfile "$L"
     echo
 done
