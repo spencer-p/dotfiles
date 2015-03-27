@@ -1,5 +1,0 @@
-#!/bin/bash
-
-cd $HOME/docs/emu
-
-desmume --disable-limiter "Pokemon White.nds"

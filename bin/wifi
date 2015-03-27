@@ -1,6 +1,0 @@
-#!/bin/bash
-
-ip link set wlan0 down
-iw dev wlan0 set type ibss
-ip link set wlan0 up
-wifi-menu wlan0

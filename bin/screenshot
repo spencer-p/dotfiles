@@ -1,6 +1,0 @@
-#!/bin/bash
-
-cd $HOME/pics
-screenshotfilename=`date +%g-%m-%d_%H:%M:%S_scrot.png`
-scrot "$@" $screenshotfilename
-notify-send -i stock_save "Screenshot taken" "Saved to $screenshotfilename"

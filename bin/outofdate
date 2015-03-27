@@ -1,7 +1,0 @@
-#!/bin/sh
-
-#if [ $((`date +M`%10)) == 0 ]
-#then
-#    pacman -Syy
-#fi
-echo -n "Old packages: " && pacman -Qu|wc -l
