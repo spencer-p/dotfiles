@@ -1,0 +1,12 @@
+#!/usr/bin/sh
+
+ALBUM=`spotinterface get Metadata 2> /dev/null | awk '
+{
+    if ( $0 ~ /[ ]*string "xesam:album"/ ) {
+        getline line; 
+        sub(/[ ]*variant[ ]*string "/, "", line); sub(/"$/, "", line); 
+        print line;
+    }
+}'`
+
+echo $ALBUM

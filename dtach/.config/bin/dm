@@ -1,0 +1,35 @@
+#!/bin/sh
+
+tmp="/tmp/dtach"
+options="-e ^a"
+
+[ ! -d $tmp ] && mkdir $tmp
+
+list () {
+    ls $tmp | cat
+}
+
+case $# in
+    0)
+        list
+        exit
+        ;;
+    1)
+        if [[ "$1" =~ ^-?l(ist)?$ ]]; then
+            list
+            exit
+        fi
+        [ -S $tmp/$1 ] && dtach -a $tmp/$1 $options || echo no session $1
+        ;;
+    *)
+        if [[ "$1" =~ ^-?n(ew)?$ ]]; then
+            name=$2
+            shift; shift
+            dtach -n $tmp/$name $options $@
+        else
+            name=$1
+            shift
+            dtach -A $tmp/$name $options $@
+        fi
+        ;;
+esac

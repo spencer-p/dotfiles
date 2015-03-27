@@ -1,0 +1,36 @@
+#!/bin/bash
+
+state=`amixer get Master|grep --only-matching -e '\[o[nf]*\]'`
+
+if [ $state == '[on]' ]
+then
+    amixer set Master mute
+    notify-send -i audio-volume-low-zero-panel -t 3000 "Volume" -h "int:value:0"
+    exit
+fi
+if [ $state == '[off]' ]
+then
+    amixer set Master unmute
+
+    vol=`getvol|grep "[0-9]*" -o`
+
+    if [ -z $vol ]
+    then
+        icon=audio-volume-muted-panel
+    elif (( $vol > 66 ))
+    then
+        icon=audio-volume-high-panel
+    elif (( $vol > 33 ))
+    then
+        icon=audio-volume-medium-panel
+    elif (( $vol > 0 ))
+    then
+        icon=audio-volume-low-panel
+    else
+        icon=audio-volume-low-zero-panel
+    fi
+
+    notify-send -i $icon -t 3000 "Volume" -h "int:value:$vol"
+    exit
+fi
+notify-send "togglemute is broken" "state = $state pls fix"

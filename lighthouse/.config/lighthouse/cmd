@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+
+image() {
+    echo -n "%I$HOME/.config/lighthouse/$@.png%"
+}
+
+function autocomp {
+    case $@ in
+        ch*)
+            echo -n "{$(image googlechrome) chrome|google-chrome-stable}" ;;
+        spotin*)
+            echo -n "{$(image spotify) spotinterface | $@}" ;;
+        sp*)
+            echo -n "{$(image spotify) spotify|spotify}" ;;
+        lib*)
+            echo -n "{$(image libreoffice) libreoffice|libreoffice}" ;;
+        ste*)
+            echo -n "{$(image steam) steam|steam}" ;;
+
+    esac
+}
+
+function findexec {
+    cmd=$(echo $@ | awk '{print $1}')
+    if command -v $cmd 1>&2>/dev/null
+    then
+        echo -n "{execute $cmd|$@}"
+        echo -n "{run $cmd in shell|urxvtc -e $@}"
+    else
+        guess=$(find `echo $PATH|sed 's/:/ /g'` -executable -not -type d -name $@* -printf %f -quit)
+        if [ -n "$guess" ]
+        then
+            echo -n "{execute $guess|$guess}"
+            echo -n "{run $guess in shell|urxvtc -e $guess}"
+        fi
+    fi
+}
+
+function findfile {
+    IFS=$'\n' #for loop ignores spaces as delim
+    for F in $(find ~/docs ~/downloads -type f | grep -m 32 "[^/]*/$@[^/]*$"); do
+        #echo -n "{open `echo $F|sed s:/home/spencer/::`|mimeo \"$F\"}"
+        echo -n "{open `trimwd 3 $F`|mimeo \"$F\"}"
+    done
+    IFS=$' '
+}
+
+while read L; do
+    autocomp "$L"
+    findexec "$L"
+    echo -n "{search $L|google-chrome-stable https://www.google.com/search?q=$L}"
+    findfile "$L"
+    echo
+done

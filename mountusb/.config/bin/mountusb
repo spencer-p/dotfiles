@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [ $# != 1 ]
+then
+    echo what device?
+    exit
+fi
+
+if [ `whoami` != 'root' ]
+then
+    echo you should be root
+    exit
+fi
+
+mkdir /home/spencer/usb
+mount -o gid=users,fmask=113,dmask=002 $1 /home/spencer/usb

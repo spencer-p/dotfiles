@@ -1,0 +1,18 @@
+#!/bin/sh
+
+printUsage() {
+    free -b | grep -P '(Mem|Swap)' | awk '
+    {
+        total = $2
+        used  = $3
+        free  = $4
+        printf("%s %.1f%% (%.2f GB used)\n", $1, used/total*100, used / 1073741824)
+    }'
+}
+
+[ "`whoami`" != "root" ] && printUsage && exit
+
+echo -ne '\e[0;31m'; printUsage
+echo -e '\e[0mFreeing...'
+sync; echo 3 > /proc/sys/vm/drop_caches
+echo -ne '\e[0;34m'; printUsage
