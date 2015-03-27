@@ -92,7 +92,7 @@ super + @button{1-3}
 
 #
 # wm independent hotkeys
-#
+
 
 super + Return
     urxvtc
@@ -103,11 +103,11 @@ super + Return
 #    dmenu_run -i -w 800 -dim 0.4 -o 0.9 -y 300 -x 560 -q -l 10 -p '>' -nb '#232323' -nf '#ffffff' -sb '#232323' -sf '#5fafd7' -fn 'Arial:pixelsize=32'
     #dmenu_run -i -p 'Run:' -nb '#151515' -nf '#b0b0b0' -sb '#888888' -sf '#000000' -fn '-*-terminus-medium-r-normal-*-14-*-*-*-c-*-*-1'
 
-#super + d
+#super + shift + d
 #    spotlight #my own custom command
 
 super + d
-    lighthouse | sh ;\
+    exec $(lighthouse) ;\
     bspc window -f $(bspc query -W -w focused) #lighthouse doesn't return keyboard focus properly
 
 super + c

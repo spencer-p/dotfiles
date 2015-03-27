@@ -27,7 +27,7 @@ function findexec {
         echo -n "{execute $cmd|$@}"
         echo -n "{run $cmd in shell|urxvtc -e $@}"
     else
-        guess=$(find `echo $PATH|sed 's/:/ /g'` -executable -not -type d -name $@* -printf %f -quit)
+        guess=$(find `echo $PATH|sed 's/:/ /g'` -executable -not -type d -name "$@*" -printf %f -quit)
         if [ -n "$guess" ]
         then
             echo -n "{execute $guess|$guess}"
