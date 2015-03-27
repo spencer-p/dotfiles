@@ -1,4 +1,0 @@
-#!/bin/bash
-winetricks sandbox
-cd /home/spencer/.wine/drive_c/Program\ Files\ \(x86\)/Microsoft\ Games/Halo\ Custom\ Edition
-env WINEPREFIX=/home/spencer/.wine wine haloce.exe -window
