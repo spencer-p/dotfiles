@@ -4,8 +4,8 @@ bspc config bottom_padding 22
 
 bspc monitor -d 1 2 3 4 5 6 7 8 9 10
 
-bspc config -m LVDS border_width        1
-bspc config -m LVDS window_gap          16 
+bspc config -m focused border_width        1
+bspc config -m focused window_gap          16
 bspc config split_ratio         0.55
 
 bspc config borderless_monocle  true
