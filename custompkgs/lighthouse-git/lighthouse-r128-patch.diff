@@ -1,0 +1,22 @@
+diff --git a/src/lighthouse.c b/src/lighthouse.c
+index a5cdea7..554076f 100644
+--- a/src/lighthouse.c
++++ b/src/lighthouse.c
+@@ -266,7 +266,7 @@ static void draw_typed_line(cairo_t *cr, char *text, uint32_t line, uint32_t cur
+   /* Draw the cursor. */
+   uint32_t cursor_y = offset.y - settings.font_size - settings.cursor_padding;
+   cairo_set_source_rgb(cr, foreground->r, foreground->g, foreground->b);
+-  cairo_rectangle(cr, cursor_x + 2, cursor_y, 0, settings.font_size + (settings.cursor_padding * 2));
++  cairo_rectangle(cr, cursor_x + 2, cursor_y + settings.font_size + (settings.cursor_padding * 2) - 3, 10, 0);
+   cairo_stroke_preserve(cr);
+   cairo_fill(cr);
+ 
+@@ -1178,7 +1178,7 @@ int main(int argc, char **argv) {
+     window_type_atom = atom_reply->atom;
+     free(atom_reply);
+ 
+-    atom_cookie = xcb_intern_atom(connection, 0, strlen("_NET_WM_WINDOW_TYPE_DOCK"), "_NET_WM_WINDOW_TYPE_DOCK");
++    atom_cookie = xcb_intern_atom(connection, 0, strlen("_NET_WM_WINDOW_TYPE_DIALOG"), "_NET_WM_WINDOW_TYPE_DIALOG");
+     atom_reply = xcb_intern_atom_reply(connection, atom_cookie, NULL);
+     if (atom_reply) {
+       window_type_dock_atom = atom_reply->atom;
