@@ -51,6 +51,9 @@ super + space
 super + {comma,period}
     bspc desktop -C {backward,forward}
 
+super + shift + {comma,period}
+    bspc desktop -F {horizontal,vertical}
+
 super + bracket{left,right}
     bspc desktop -f {prev,next}
 
@@ -89,6 +92,12 @@ super + !button{1-3}
 
 super + @button{1-3}
     bspc pointer -u
+
+super + {minus,equal}
+    bspc desktop -R {-,_}90
+
+super + e
+    bspc desktop -E
 
 #
 # wm independent hotkeys

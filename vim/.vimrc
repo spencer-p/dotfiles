@@ -10,6 +10,7 @@ set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 filetype plugin indent on
  
 syntax on
+au BufReadPost *.nxc set syntax=c
 set number
 set hlsearch
 set showmatch

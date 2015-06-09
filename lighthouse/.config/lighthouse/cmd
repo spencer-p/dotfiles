@@ -1,23 +1,42 @@
 #!/usr/bin/env bash
 
-image() {
+imagepath() {
     echo -n "%I$HOME/.config/lighthouse/$@.png%"
 }
 
 function autocomp {
     case $@ in
         ch*)
-            echo -n "{$(image googlechrome) chrome|google-chrome-stable}" ;;
+            image=googlechrome
+            name=chrome
+            run=google-chrome-stable
+            ;;
         spotin*)
-            echo -n "{$(image spotify) spotinterface | $@}" ;;
+            image=spotify
+            name=spotinterface
+            run=spotinterface
+            ;;
         sp*)
-            echo -n "{$(image spotify) spotify|spotify}" ;;
+            image=spotify
+            name=spotify
+            run=spotify
+            ;;
         lib*)
-            echo -n "{$(image libreoffice) libreoffice|libreoffice}" ;;
+            image=libreoffice
+            name=libreoffice
+            run=libreoffice
+            ;;
         ste*)
-            echo -n "{$(image steam) steam|steam}" ;;
-
+            image=steam
+            name=steam
+            run=steam
+            ;;
     esac
+    if [ -n "$name" ]
+    then
+        echo -n "{$(imagepath $image) $name|$run $(echo $@|sed 's/[^ ]* \?//')}"
+    fi
+    name=
 }
 
 function findexec {
@@ -40,7 +59,7 @@ function findfile {
     IFS=$'\n' #for loop ignores spaces as delim
     for F in $(find ~/docs ~/downloads -type f | grep -m 32 "[^/]*/$@[^/]*$"); do
         #echo -n "{open `echo $F|sed s:/home/spencer/::`|mimeo \"$F\"}"
-        echo -n "{open `trimwd 3 $F`|mimeo \"$F\"}"
+        echo -n "{open `trimwd 3 $F`|xdg-open $F}"
     done
     IFS=$' '
 }
@@ -48,9 +67,9 @@ function findfile {
 function web {
     if [[ $@ =~ (https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/? ]]
     then
-        echo -n "{$(image googlechrome) $@|google-chrome-stable $@}"
+        echo -n "{$(imagepath googlechrome) $@|google-chrome-stable $@}"
     else
-        echo -n "{search $L|google-chrome-stable https://www.google.com/search?q=$L}"
+        echo -n "{search $L|google-chrome-stable https://www.google.com/search?q=$(echo $L | sed 's/ /+/g')}"
     fi
 }
 
