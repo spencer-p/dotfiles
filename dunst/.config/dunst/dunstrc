@@ -1,5 +1,7 @@
 [global]
 
+    always_run_script = yes
+
     icon_position = left
     icon_folders = /usr/share/icons/Moka/22x22/actions/:/usr/share/icons/Moka/22x22/status/:/usr/share/icons/Moka/22x22/mimetypes/
 
