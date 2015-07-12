@@ -69,11 +69,17 @@ function web {
     then
         echo -n "{$(imagepath googlechrome) $@|google-chrome-stable $@}"
     else
-        echo -n "{search $L|google-chrome-stable https://www.google.com/search?q=$(echo $L | sed 's/ /+/g')}"
+        echo -n "{search $@|google-chrome-stable https://www.google.com/search?q=$(echo $@ | sed 's/ /+/g')}"
     fi
 }
 
+function evaluate {
+    [[ $@ =~ ^[0-9.*/-+^%()]+$ ]] && echo -n "{ = $(echo $@ | bc)|}"
+    #echo "$@" | grep -q "[0-9.*/-+^%()]*" && echo -n "{ = $(echo $@ | bc)|}"
+}
+
 while read L; do
+    evaluate "$L"
     autocomp "$L"
     findexec "$L"
     web "$L"
