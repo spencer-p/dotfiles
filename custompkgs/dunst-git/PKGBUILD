@@ -4,7 +4,7 @@
 
 pkgname=dunst-git
 _gitname=dunst
-pkgver=1.0.0.625.08fa6ea
+pkgver=1.0.0.629.b7eb981
 pkgrel=1
 pkgdesc="a lightweight replacement for the notification-daemons provided by most desktop environments"
 arch=('i686' 'x86_64')
