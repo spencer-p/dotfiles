@@ -57,9 +57,9 @@ function findexec {
 
 function findfile {
     IFS=$'\n' #for loop ignores spaces as delim
-    for F in $(find ~/docs ~/downloads -type f -iname *$@* | head -32); do
+    for F in $(find ~/docs ~/downloads -type f -iname "*$@*" | head -32); do
         #echo -n "{open `echo $F|sed s:/home/spencer/::`|mimeo \"$F\"}"
-        echo -n "{open `trimwd 3 $F`|xdg-open $F}"
+        echo -n "{open `trimwd 3 $F`|xdg-open \"$F\"}"
     done
     IFS=$' '
 }

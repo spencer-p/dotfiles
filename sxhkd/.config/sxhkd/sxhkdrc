@@ -118,7 +118,7 @@ super + shift + Return
 #    spotlight #my own custom command
 
 super + d
-    exec $(lighthouse) ;\
+    eval exec $(lighthouse) ;\
     bspc window -f $(bspc query -W -w focused) #lighthouse doesn't return keyboard focus properly
 
 super + c
@@ -160,4 +160,5 @@ super + XF86Eject
 
 # make sxhkd reload its configuration files:
 super + Escape
-    pkill -USR1 -x sxhkd
+    pkill -USR1 -x sxhkd ;\
+    notify-send "Restarting sxhkd"
