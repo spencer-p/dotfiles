@@ -15,6 +15,6 @@ xset +fp /usr/share/fonts/local
 xset fp rehash
 xinput -set-button-map "Logitech Anywhere MX" 1 2 3 5 4 7 6 #invert scrolling OSX style
 dropbox & #dropbox duh
-unclutter -root -not Google-chrome-stable &
+unclutter &
 
 exec bspwm
