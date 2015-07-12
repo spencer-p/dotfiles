@@ -1,5 +1,7 @@
 #gtk-theme-name = "FlatStudioLight"
 #gtk-theme-name = "NumixBlue"
-gtk-theme-name = "+1"
+#gtk-theme-name = "+1"
 #gtk-theme-name = "Arc"
+#gtk-theme-name = "Numix-ArchBlue"
+gtk-theme-name = "Ceti-2"
 gtk-icon-theme-name = "Flattr"
