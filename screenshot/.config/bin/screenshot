@@ -2,5 +2,15 @@
 
 cd $HOME/pics
 screenshotfilename=`date +%g-%m-%d_%H:%M:%S_scrot.png`
-scrot "$@" $screenshotfilename
+if [[ $1 == "-s" ]]
+then
+    eval $(slop)
+    if [[ $Cancel == "true" ]]
+    then
+        exit
+    fi
+    import -window root -crop $G $screenshotfilename
+else
+    import -window root $screenshotfilename
+fi
 notify-send -i stock_save "Screenshot taken" "Saved to $screenshotfilename"
