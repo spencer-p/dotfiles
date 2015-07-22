@@ -69,7 +69,7 @@ function web {
     then
         echo -n "{$(imagepath googlechrome) $@|google-chrome-stable $@}"
     else
-        echo -n "{search $@|google-chrome-stable https://www.google.com/search?q=$(echo $@ | sed 's/ /+/g')}"
+        echo -n "{search $@|google-chrome-stable https://www.google.com/search?q=$(echo "$@" | sed 's/ /+/g')}"
     fi
 }
 
