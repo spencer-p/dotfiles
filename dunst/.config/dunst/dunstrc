@@ -5,7 +5,7 @@
     icon_position = left
     icon_folders = /usr/share/icons/Moka/22x22/actions/:/usr/share/icons/Moka/22x22/status/:/usr/share/icons/Moka/22x22/mimetypes/
 
-    font = Terminus 14
+    font = Terminus 12
 
     # allow a small subset of html markup:
     # <b>bold</b>
