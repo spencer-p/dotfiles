@@ -13,7 +13,7 @@ xrdb ~/.Xresources #xresources for pointer and urxvt colors and stuff
 xsetroot -cursor_name left_ptr & #not stupid cursor
 xset +fp /usr/share/fonts/local
 xset fp rehash
-xinput -set-button-map "Logitech Anywhere MX" 1 2 3 5 4 7 6 #invert scrolling OSX style
+xinput -set-button-map "Logitech M510" 1 2 3 5 4 7 6 #invert scrolling OSX style
 dropbox & #dropbox duh
 unclutter &
 
