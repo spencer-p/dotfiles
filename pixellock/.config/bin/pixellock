@@ -1,6 +1,6 @@
 #!/bin/bash
-sleep 0.25
+sync
 scrot /tmp/lockscreen.png
 convert /tmp/lockscreen.png -scale 10% -scale 1000% /tmp/lockscreen.png
-[[ -f /home/user/images/icons/lock-icon.png ]] && convert /tmp/lockscreen.png /home/user/images/icons/lock-icon-1.png -gravity center -composite -matte /tmp/lockscreen.png
+[[ -f $HOME/.config/pics/lock-icon.png ]] && convert /tmp/lockscreen.png $HOME/.config/pics/lock-icon.png -gravity center -composite -matte /tmp/lockscreen.png
 i3lock -udi /tmp/lockscreen.png

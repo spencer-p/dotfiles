@@ -124,9 +124,8 @@ super + d
 super + c
     bspc rule -a Google-chrome-stable -o desktop=$(bspc query -D -d focused) && google-chrome-stable
 
-#alt + l
-#    sleep 0.5 && xset dpms force off    
-#lock
+alt + l
+    xautolock -locknow
 
 super + shift + s
     screenshot -s
