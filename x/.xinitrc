@@ -16,6 +16,6 @@ xset fp rehash
 xinput -set-button-map "Logitech M510" 1 2 3 5 4 7 6 #invert scrolling OSX style
 dropbox & #dropbox duh
 unclutter &
-xautolock -time 15 -locker "pixellock" &
+xautolock -detectsleep -time 15 -locker "pixellock" &
 
 exec bspwm
