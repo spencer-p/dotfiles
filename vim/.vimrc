@@ -43,3 +43,5 @@ let &t_Co=16
 "inoremap { {<CR><CR>}<Esc>ki<tab>
 
 set noerrorbells visualbell t_vb=
+
+vnoremap . :norm.<CR>

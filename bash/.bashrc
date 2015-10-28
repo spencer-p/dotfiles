@@ -8,6 +8,7 @@ alias bc='bc -ql'
 alias js='js17'
 alias wifiwerk='if ping -c 1 -W 3 google.com &> /dev/null; then echo werks; else echo does not werk; sudo netctl restart "$(netctl list|sed "s/^* //")"; echo werks; fi'
 alias get='find -name'
+alias gambatte-sdl='gambatte-sdl -i return rshift x z up down left right'
 PATH=$HOME/.config/bin:$PATH
 PS1='\[\033[1;`[[ $? -eq 0 ]] && echo 36 || echo 31`m\]──╼\[\033[0m\] '
 export EDITOR="vim"

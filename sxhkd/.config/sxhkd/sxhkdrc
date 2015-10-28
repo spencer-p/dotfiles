@@ -16,8 +16,14 @@ super + t
 super + b
     bspc desktop -B
 
+super + v
+    bspc desktop -F vertical
+
 super + {s,f}
     bspc window -t {floating,fullscreen}
+
+#super + shift + s
+#    bspc window -t sticky
 
 super + {Tab,grave}
     bspc {window,desktop} -f last
@@ -117,9 +123,12 @@ super + shift + Return
 #super + shift + d
 #    spotlight #my own custom command
 
+#super + d
+#    eval exec $(lighthouse) ;\
+#    bspc window -f $(bspc query -W -w focused) #lighthouse doesn't return keyboard focus properly
+
 super + d
-    eval exec $(lighthouse) ;\
-    bspc window -f $(bspc query -W -w focused) #lighthouse doesn't return keyboard focus properly
+    dmenu_run -b -fn "Terminus:pixelsize=10" -h 22 -x 192 -w 700 -nb '#232323' -sb '#6185b6' -p "run"
 
 super + c
     bspc rule -a Google-chrome-stable -o desktop=$(bspc query -D -d focused) && google-chrome-stable

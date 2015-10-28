@@ -1,5 +1,24 @@
 #! /bin/bash
 
+source $HOME/.bash_profile
+
+hsetroot -full $HOME/.config/pics/balloon.png #set background
+
+xset m 3/2 0 #mouse speed
+xset r rate 250 30 #keyboard repeat rate
+setxkbmap -layout us -variant mac -option numpad:mac #fix the damn numpad
+sxhkd & #key bindings
+compton & #pretty windows
+urxvtd -q -f -o #terminal daemon in background no & because --fork option is set
+xrdb ~/.Xresources #xresources for pointer and urxvt colors and stuff
+xsetroot -cursor_name left_ptr & #not stupid cursor
+xset +fp /usr/share/fonts/local
+xset fp rehash
+xinput --set-prop "pointer:Logitech M510" "Evdev Scrolling Distance" -1 -1 1
+dropbox & #dropbox duh
+unclutter &
+xautolock -detectsleep -time 15 -locker "pixellock" &
+
 bspc config bottom_padding 22
 
 bspc monitor -d 1 2 3 4 5 6 7 8 9 10

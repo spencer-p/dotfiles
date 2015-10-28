@@ -9,3 +9,4 @@ highlight_fg=0.373,0.686,0.843
 highlight_bg=0.23,0.23,0.23
 y=30
 backspace_exit=0
+cursor_is_underline=1

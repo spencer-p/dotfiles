@@ -48,7 +48,7 @@ S:%{r}\
 %{F-} %{F\#ff7c69b7}${cpu cpu1}%% %{F\#ff7c69b7}${cpu cpu2}%%   \
 %{F-} %{F\#ff7d859b}${memperc}%%   \
 %{F-} %{F\#ff616ab7}${fs_used_perc /}%% %{F-} %{F\#ff616ab7}${fs_used_perc /home}%%   \
-${if_up wlan0}%{F-}${exec wifiicon} %{F\#ff61859b}${addr wlan0}   %{F-} %{F\#ff6185b6}${execi 300 weather 95070}   \
+${if_up wlan0}%{F-}${exec wifiicon} %{F\#ff61859b}${addr wlan0}   \
 ${else}%{F-} %{F\#ff6185b6}offline   ${endif}\
 %{F-}${exec volicon} %{F\#ff9d87b9}${exec getvol}%   \
 ${if_match "${exec spotinterface query song raw}" != ""}%{A:spotinterface PlayPause:}%{F\#ff7fa6b9}${exec spotinterface query song}%{A}   ${endif}\
