@@ -1,6 +1,6 @@
 #!/bin/bash
 
-state=`amixer get Master|grep --only-matching -e '\[o[nf]*\]'`
+state=`amixer get Master|grep -m 1 --only-matching -e '\[o[nf]*\]'`
 
 if [ $state == '[on]' ]
 then

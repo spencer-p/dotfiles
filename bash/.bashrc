@@ -11,6 +11,7 @@ alias get='find -name'
 alias gambatte-sdl='gambatte-sdl -i return rshift x z up down left right'
 PATH=$HOME/.config/bin:$PATH
 PS1='\[\033[1;`[[ $? -eq 0 ]] && echo 36 || echo 31`m\]──╼\[\033[0m\] '
+#PS1='\[\033[1;`[[ $? -eq 0 ]] && echo 36 || echo 31`m\] -\[\033[0m\] '
 export EDITOR="vim"
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 source /usr/share/doc/pkgfile/command-not-found.bash

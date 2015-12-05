@@ -26,22 +26,26 @@ elseif has("clipboard")
   set clipboard=unnamed
 endif
 
-set expandtab
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 
+"set t_Co=256
+
+set background=dark
 "colorscheme molokai
 "colorscheme moss
-colorscheme pablo
-
-let &t_Co=16
-
-"inoremap { {<CR><BS>}<Esc>bo
-"inoremap { {<CR><BS>}<Esc>ko
-"inoremap { {}<Esc>i\n
-"inoremap { {<CR><CR>}<Esc>ki<tab>
+"colorscheme pablo
+let g:solarized_termcolors=16
+colorscheme solarized
+"colorscheme base16-flat
 
 set noerrorbells visualbell t_vb=
 
 vnoremap . :norm.<CR>
+
+"Run love games with ctrl-k
+map <C-k> :!love .<CR><CR>
+
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextDefaultCompletionType = "<c-n>"
