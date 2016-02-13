@@ -36,8 +36,8 @@ set background=dark
 "colorscheme molokai
 "colorscheme moss
 "colorscheme pablo
-let g:solarized_termcolors=16
-colorscheme solarized
+"let g:solarized_termcolors=16
+"colorscheme solarized
 "colorscheme base16-flat
 
 set noerrorbells visualbell t_vb=

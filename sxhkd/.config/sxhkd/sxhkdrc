@@ -125,7 +125,7 @@ super + shift + Return
 #    bspc window -f $(bspc query -W -w focused) #lighthouse doesn't return keyboard focus properly
 
 super + d
-    dmenu_run -b -fn "Terminus:pixelsize=10" -h 22 -x 192 -w 700 -nb '#232323' -sb '#6185b6' -p "run"
+    dmenu_run -f -b -fn "Terminus:pixelsize=10" -h 22 -x 192 -w 700 -nb '#232323' -sb '#6185b6' -p "run"
 
 super + c
     bspc rule -a Google-chrome-stable -o desktop=$(bspc query -D -d focused) && google-chrome-stable
