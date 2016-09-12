@@ -10,11 +10,16 @@ alias wifiwerk='if ping -c 1 -W 3 google.com &> /dev/null; then echo werks; else
 alias get='find -name'
 alias gambatte-sdl='gambatte-sdl -i return rshift x z up down left right'
 PATH=$HOME/.config/bin:$PATH
-PS1='\[\033[1;`[[ $? -eq 0 ]] && echo 36 || echo 31`m\]──╼\[\033[0m\] '
-#PS1='\[\033[1;`[[ $? -eq 0 ]] && echo 36 || echo 31`m\] -\[\033[0m\] '
+PS1='\[\033[1;`[[ $? -eq 0 ]] && echo 35 || echo 31`m\]->\[\033[0m\] '
+#PS1='\[\033[1;`[[ $? -eq 0 ]] && echo 35 || echo 31`m\]──╼\[\033[0m\] '
 export EDITOR="vim"
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+export STEAM_RUNTIME=0
 source /usr/share/doc/pkgfile/command-not-found.bash
+
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/base16-chalk.light.sh"
+[[ -s $BASE16_SHELL  ]] && source $BASE16_SHELL
 
   #OLD SETPROMPT
     #returned=$?
@@ -81,14 +86,15 @@ extract() {
 }
 
 man() {
-    env LESS_TERMCAP_mb=$'\E[01;31m' \
-    LESS_TERMCAP_md=$'\E[01;38;5;74m' \
-    LESS_TERMCAP_me=$'\E[0m' \
-    LESS_TERMCAP_se=$'\E[0m' \
-    LESS_TERMCAP_so=$'\E[38;5;246m' \
-    LESS_TERMCAP_ue=$'\E[0m' \
-    LESS_TERMCAP_us=$'\E[04;38;5;146m' \
-    man "$@"
+	env \
+	LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+	LESS_TERMCAP_md=$(printf "\e[1;31m") \
+	LESS_TERMCAP_me=$(printf "\e[0m") \
+	LESS_TERMCAP_se=$(printf "\e[0m") \
+	LESS_TERMCAP_so=$(printf "\e[1;35m") \
+	LESS_TERMCAP_ue=$(printf "\e[0m") \
+	LESS_TERMCAP_us=$(printf "\e[1;34m") \
+	man "$@"
 }
 
 math() {

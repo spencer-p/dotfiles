@@ -49,12 +49,12 @@ conky.config = {
 
 conky.text = [[
 S:%{r}\
-%{F-} %{F\#ff7c69b7}${cpu cpu1}%% %{F\#ff7c69b7}${cpu cpu2}%%   \
-%{F-} %{F\#ff7d859b}${memperc}%%   \
-%{F-} %{F\#ff616ab7}${fs_used_perc /}%% %{F-} %{F\#ff616ab7}${fs_used_perc /home}%%   \
+%{F-} %{F\#ff7c69b7}${cpu cpu1}% %{F\#ff7c69b7}${cpu cpu2}%   \
+%{F-} %{F\#ff7d859b}${memperc}%   \
+%{F-} %{F\#ff616ab7}${fs_used_perc /}% %{F-} %{F\#ff616ab7}${fs_used_perc /home}%   \
 ${if_up wlan0}%{F-}${exec wifiicon} %{F\#ff61859b}${addr wlan0}   \
 ${else}%{F-} %{F\#ff6185b6}offline   ${endif}\
-%{F-}${exec volicon} %{F\#ff9d87b9}${exec getvol}%   \
+%{F-}${exec volicon} %{F\#ff9d87b9}${exec getvol}   \
 %{F-}%{A:notify-send "       Calendar" "`echo && cal`":}${time %A, %B %d %I:%M}%{A}  \
 %{F\#ff3292cf}  
 ]]

@@ -1,6 +1,9 @@
-#!/bin/sh
+#!/bin/bash
 
-if [ -z "$@" ]; then
+# somehow bash doesn't include my path
+PATH=$PATH:$HOME/.config/bin
+
+if [[ -z "$@" ]]; then
     song=`spotinterface query song raw`
     album=`spotinterface query album`
 else
@@ -36,5 +39,8 @@ if [ ! -f "$(filename)".png ]; then
     rm "$(filename)".jpeg
 fi
 
+# For the arist argument, we exclude "by $artist"
+# if $3 exists, because spotify passes the artist
+# in $3, which gets set to $album
 notify-send -i "$(filename)".png "$song" "$album
-by `spotinterface query artist`"
+$( [[ $3 ]] || echo by $artist )"

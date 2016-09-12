@@ -3,18 +3,18 @@
 //for each type of workspace
 
 //currently selected
-#define ACTIVE "%{F#ffdde3ff B- U#ff6185b6 +o}"
+#define ACTIVE "%{F#ff303030 B#ffd0d0d0}"
 
 //urgent or something idk
 //overline for urgent?
 //if you set a background probably
-#define URGENT "%{F- B- U#ff616ab7 +o}"
+#define URGENT "%{F#fff5f5f5 B#ff303030}"
 
 //has windows
-#define OCCUPIED "%{F- B- -o}"
+#define OCCUPIED "%{F#ff808080 B-}"
 
 //show if no winows?
 #define SHOW_EMPTY 1
 
 //empty workspace color (if showing)
-#define EMPTY "%{F#ff434343 B- -o}"
+#define EMPTY "%{F#ffe0e0e0 B-}"

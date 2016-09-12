@@ -6,7 +6,7 @@ printUsage() {
         total = $2
         used  = $3
         free  = $4
-        printf("%s %.1f%% (%.2f GB used)\n", $1, used/total*100, used / 1073741824)
+		printf("%s %.1f%% (%.2f GB used)\n", $1, (1-(free/total))*100, used / 1073741824)
     }'
 }
 

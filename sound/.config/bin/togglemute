@@ -5,7 +5,7 @@ state=`amixer get Master|grep -m 1 --only-matching -e '\[o[nf]*\]'`
 if [ $state == '[on]' ]
 then
     amixer set Master mute
-    notify-send -i audio-volume-low-zero-panel -t 3000 "Volume" -h "int:value:0"
+    notify-send -i audio-volume-muted-panel -t 3000 "Volume" -h "int:value:0"
     exit
 fi
 if [ $state == '[off]' ]
@@ -27,7 +27,8 @@ then
     then
         icon=audio-volume-low-panel
     else
-        icon=audio-volume-low-zero-panel
+        icon=audio-volume-low-panel
+#        icon=audio-volume-low-zero-panel
     fi
 
     notify-send -i $icon -t 3000 "Volume" -h "int:value:$vol"

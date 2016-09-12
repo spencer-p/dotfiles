@@ -1,6 +1,9 @@
 #!/bin/bash
+file=/tmp/lockscreen.png
+composite=$HOME/.config/pics/lockbottom.png
 sync
-scrot /tmp/lockscreen.png
-convert /tmp/lockscreen.png -scale 10% -scale 1000% /tmp/lockscreen.png
-[[ -f $HOME/.config/pics/lock-icon.png ]] && convert /tmp/lockscreen.png $HOME/.config/pics/lock-icon.png -gravity center -composite -matte /tmp/lockscreen.png
-i3lock -udi /tmp/lockscreen.png
+scrot $file
+#convert $file -scale 10% -scale 1000% $file
+#convert $file -negate -swirl 30 -blur 0 $file
+[[ -f $composite ]] && convert $file $composite -gravity South -composite -matte $file
+i3lock -udi $file

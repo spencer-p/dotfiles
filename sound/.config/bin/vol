@@ -23,7 +23,8 @@ elif (( $vol > 33 )); then
 elif (( $vol > 0 )); then
     icon=audio-volume-low-panel
 else
-    icon=audio-volume-low-zero-panel
+	icon=audio-volume-low-panel
+	#icon=audio-volume-low-zero-panel
 fi
 
 notify-send -i $icon -t 3000 "Volume" -h "int:value:$vol"

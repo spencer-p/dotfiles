@@ -60,6 +60,8 @@ int write(char *str, int *i, const char *format, ...) {
 
 int main(int argc, char *argv[]) {
     char c;
+	spaces[0] = '\0';
+	status[0] = '\0';
     while (1) {
         c = getchar();
         switch (c) {
@@ -79,6 +81,8 @@ int main(int argc, char *argv[]) {
                     c = getchar();
                     switch (c) {
                         case 'L':
+						case 'T':
+						case 'G':
                             //no more info
                             //without this case the word Monocle breaks everything
                             do {
@@ -117,6 +121,11 @@ int main(int argc, char *argv[]) {
                             }
                             spaces[i++] = ' ';
                             break;
+						default: //If we don't recognize the block, dump it all
+                            do {
+                                c = getchar();
+                            } while (c != '\n' && c != ':');
+                            break;
                     }
                 } while (c != '\n' && i < SPACESLEN-1);
                 write(spaces, &i, "%%{F- B- -o -u}");
@@ -124,9 +133,10 @@ int main(int argc, char *argv[]) {
                 break;
             }
         }
-        printf("%%{l}%s%s\n", spaces, status);
-        //just for a slight delay
-        system("");
-        fflush(stdout);
+		if (spaces[0] != '\0' && status[0] != '\0') {
+			printf("%%{l}%s%s\n", spaces, status);
+			system(""); //for a slight delay
+			fflush(stdout);
+		}
     }
 }

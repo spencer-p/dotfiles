@@ -11,7 +11,8 @@ filetype plugin indent on
  
 syntax on
 au BufReadPost *.nxc set syntax=c
-set number
+"set number
+set relativenumber
 set hlsearch
 set showmatch
 set ignorecase
@@ -30,9 +31,11 @@ set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 
-"set t_Co=256
+set t_Co=256
 
-set background=dark
+let base16colorspace=256
+set background=light
+colorscheme base16-chalk
 "colorscheme molokai
 "colorscheme moss
 "colorscheme pablo
