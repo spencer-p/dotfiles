@@ -29,7 +29,7 @@ filename() {
 if [ ! -f "$(filename)".png ]; then
     [ ! -d $TMPDIR/"$(sanitize $artist)" ] && mkdir $TMPDIR/"$(sanitize $artist)"
 
-    url=`curl -s -S https://embed.spotify.com/oembed/?url=\`spotinterface get Metadata | grep -o -m 1 'spotify:track:[^"]*'\`| sed 's/.*"thumbnail_url":"\([^"]*\)".*/\1/;s.\\\/./.g'`
+    url=`curl -s -S https://open.spotify.com/oembed?url=\`spotinterface get Metadata | grep -o -m 1 'spotify:track:[^"]*'\`| sed 's/.*"thumbnail_url":"\([^"]*\)".*/\1/;s.\\\/./.g'`
 
     wget $url -O "$(filename)".jpeg
 
