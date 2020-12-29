@@ -1,18 +1,18 @@
 [submodule "vim/dot-vim/pack/plugins/start/auto-pairs"]
-	path = vim/dot-vim/pack/plugins/start/auto-pairs
+	path = vim/.vim/pack/plugins/start/auto-pairs
 	url = https://github.com/jiangmiao/auto-pairs.git
 [submodule "vim/dot-vim/pack/plugins/start/goyo.vim"]
-	path = vim/dot-vim/pack/plugins/start/goyo.vim
+	path = vim/.vim/pack/plugins/start/goyo.vim
 	url = https://github.com/junegunn/goyo.vim.git
 [submodule "vim/dot-vim/pack/plugins/start/commentary"]
-	path = vim/dot-vim/pack/plugins/start/commentary
+	path = vim/.vim/pack/plugins/start/commentary
 	url = https://tpope.io/vim/commentary.git
 [submodule "vim/dot-vim/pack/plugins/start/vim-go"]
-	path = vim/dot-vim/pack/plugins/start/vim-go
+	path = vim/.vim/pack/plugins/start/vim-go
 	url = https://github.com/fatih/vim-go.git
 [submodule "vim/dot-vim/pack/plugins/start/zig.vim"]
-	path = vim/dot-vim/pack/plugins/start/zig.vim
+	path = vim/.vim/pack/plugins/start/zig.vim
 	url = https://github.com/ziglang/zig.vim
 [submodule "vim/dot-vim/pack/plugins/start/base16-vim"]
-	path = vim/dot-vim/pack/plugins/start/base16-vim
+	path = vim/.vim/pack/plugins/start/base16-vim
 	url = git://github.com/chriskempson/base16-vim.git

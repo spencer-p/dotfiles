@@ -13,8 +13,6 @@ alias drun="docker run -it --rm"
 alias k="sudo -u docker minikube kubectl --"
 alias mk="sudo -u docker minikube"
 
-alias stow="stow --dotfiles"
-
 cl() {
 	cd $@ && ls
 }
