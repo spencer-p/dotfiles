@@ -1,0 +1,17 @@
+export GOPATH=$HOME/Documents/go
+export EDITOR=vim
+export CFLAGS="-std=gnu17 -Wall -Werror -Wextra"
+export PATH="$PATH:$HOME/.config/bin"
+export PATH="$PATH:$HOME/Documents/go/bin"
+export PATH="$PATH:$HOME/Documents/projects/zig-devel/zig-linux-x86_64-0.7.0"
+export XDG_CONFIG_HOME="$HOME/.config"
+
+## bspwm config
+export BSPWM_SOCKET="/tmp/bspwm-socket"
+export BSPWM_TREE=/tmp/bspwm.tree
+export BSPWM_HISTORY=/tmp/bspwm.history
+export BSPWM_STACK=/tmp/bspwm.stack
+export PANEL_FIFO=/tmp/panel-fifo
+export PANEL_HEIGHT=14
+
+# vim: set ft=bash :
